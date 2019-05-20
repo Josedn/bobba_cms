@@ -46,7 +46,7 @@ class IndexHeader extends React.Component {
 
             tryLogin(this.state.username, this.state.password)
                 .then(response => {
-                    dispatch(logIn(response.username, response.motto, response.look, response.token));
+                    dispatch(logIn(response.username, response.motto, response.look, response.token));                    
                 }).catch(err => {
                     this.setState({
                         wrongUsername: false,

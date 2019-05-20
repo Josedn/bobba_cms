@@ -3,8 +3,8 @@ export const tryLogin = (username, password) => {
         setTimeout(() => {
             const okResponse = {
                 username,
-                motto: 'yolo',
-                look: 'hd-190-10.lg-3023-1408.ch-215-91.hr-893-45',
+                motto: 'it actually works!',
+                look: 'ca-1811-62.lg-3018-81.hr-836-45.ch-669-1193.hd-600-10',
                 token: 'yoloswag1337xd'
             };
 

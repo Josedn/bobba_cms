@@ -3,7 +3,7 @@ import Footer from '../Generic/Footer';
 import GenericHeader from '../Generic/GenericHeader';
 import NewsPreview from '../Generic/NewsPreview';
 import NavigatorContainer from '../../containers/NavigatorContainer';
-import Me from './Me';
+import MeContainer from '../../containers/MeContainer';
 import Radio from './Radio';
 import LoggedRedirectorContainer from '../../containers/LoggedRedirectorContainer';
 
@@ -16,7 +16,7 @@ class MePage extends React.Component {
                 <NavigatorContainer />
                 <div className="column_container">
                     <article className="left_column user">
-                        <Me />
+                        <MeContainer />
                     </article>
                     <article className="right_column">
                         <Radio />
