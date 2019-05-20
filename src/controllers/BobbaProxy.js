@@ -1,5 +1,8 @@
+import NProgress from 'nprogress';
+
 export const tryLogin = (username, password) => {
     return new Promise((resolve, reject) => {
+        NProgress.start();
         setTimeout(() => {
             const okResponse = {
                 username,
@@ -11,13 +14,14 @@ export const tryLogin = (username, password) => {
             //const failedResponse = {};
 
             if (username === 'fail') {
+                NProgress.done();
                 reject({
                     message: 'La contraseña no es correcta'
                 });
             }
-
+            NProgress.done();
             resolve(okResponse);
-        }, 800);
+        }, 2000);
     });
 };
 

@@ -30,7 +30,6 @@ class IndexHeader extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
-
         const { dispatch } = this.props;
 
         const wrongUsername = this.state.username === '';
@@ -43,10 +42,9 @@ class IndexHeader extends React.Component {
             errorMessage = 'Por favor, ingresa tu contraseña';
         }
         if (errorMessage === '') {
-
             tryLogin(this.state.username, this.state.password)
                 .then(response => {
-                    dispatch(logIn(response.username, response.motto, response.look, response.token));                    
+                    dispatch(logIn(response.username, response.motto, response.look, response.token));
                 }).catch(err => {
                     this.setState({
                         wrongUsername: false,
