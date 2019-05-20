@@ -44,13 +44,19 @@ class IndexHeader extends React.Component {
         if (errorMessage === '') {
             tryLogin(this.state.username, this.state.password)
                 .then(response => {
-                    dispatch(logIn(response.username, response.motto, response.look, response.token));
+                    if (response.token != null) {
+                        dispatch(logIn(response.username, response.motto, response.look, response.token));
+                    } else {
+                        this.setState({
+                            wrongUsername: false,
+                            wrongPassword: true,
+                            password: '',
+                            errorMessage: 'La contraseña no es correcta'
+                        });
+                    }
                 }).catch(err => {
                     this.setState({
-                        wrongUsername: false,
-                        wrongPassword: true,
-                        password: '',
-                        errorMessage: err.message
+                        errorMessage: 'Error al contactar al servidor'
                     });
                 });
             //this.setState(initialState);

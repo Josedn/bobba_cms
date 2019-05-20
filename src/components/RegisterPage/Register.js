@@ -60,13 +60,30 @@ class Register extends React.Component {
         if (errorMessage === '') {
             tryRegister(this.state.username, this.state.email, this.state.password)
                 .then(response => {
-                    dispatch(logIn(response.username, response.motto, response.look, response.token));
+                    if (response.token != null) {
+                        dispatch(logIn(response.username, response.motto, response.look, response.token));
+                    } else {
+                        if (response.error != null) {
+                            if (response.error === 'username') {
+                                this.setState({
+                                    errorMessage: 'El nombre de usuario ya está ocupado',
+                                    wrongUsername: true,
+                                });
+                            } else if (response.error === 'email') {
+                                this.setState({
+                                    errorMessage: 'Ese correo ya está registrado',
+                                    wrongEmail: true,
+                                });
+                            }
+                        } else {
+                            this.setState({
+                                errorMessage: 'Error al registrar'
+                            });
+                        }
+                    }
                 }).catch(err => {
                     this.setState({
-                        wrongUsername: false,
-                        wrongPassword: true,
-                        password: '',
-                        errorMessage: err.message
+                        errorMessage: 'Error al contactar al servidor'
                     });
                 });
         } else {

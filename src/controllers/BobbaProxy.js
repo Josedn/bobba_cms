@@ -1,6 +1,8 @@
 import NProgress from 'nprogress';
 
-export const tryLogin = (username, password) => {
+const API_URL = 'http://localhost:1232/';
+
+export const tryFakeLogin = (username, password) => {
     return new Promise((resolve, reject) => {
         NProgress.start();
         setTimeout(() => {
@@ -11,13 +13,11 @@ export const tryLogin = (username, password) => {
                 token: 'yoloswag1337xd'
             };
 
-            //const failedResponse = {};
+            const failedResponse = { error: 'password' };
 
             if (username === 'fail') {
                 NProgress.done();
-                reject({
-                    message: 'La contraseña no es correcta'
-                });
+                resolve(failedResponse);
             }
             NProgress.done();
             resolve(okResponse);
@@ -25,6 +25,67 @@ export const tryLogin = (username, password) => {
     });
 };
 
+export const tryLogin = (username, password) => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+
+        const body = JSON.stringify({
+            username,
+            password
+        });
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        const options = {
+            method: 'POST',
+            mode: 'cors',
+            headers,
+            body
+        };
+
+        fetch(API_URL + 'login', options)
+            .then(response => response.json())
+            .then(data => {
+                NProgress.done();
+                resolve(data);
+            })
+            .catch(err => {
+                NProgress.done();
+                reject(err);
+            });
+    });
+};
+
 export const tryRegister = (username, email, password) => {
-    return tryLogin(username, password);
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+
+        const body = JSON.stringify({
+            username,
+            password,
+            email
+        });
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        const options = {
+            method: 'POST',
+            mode: 'cors',
+            headers,
+            body
+        };
+
+        fetch(API_URL + 'register', options)
+            .then(response => response.json())
+            .then(data => {
+                NProgress.done();
+                resolve(data);
+            })
+            .catch(err => {
+                NProgress.done();
+                reject(err);
+            });
+    });
 };
