@@ -51,6 +51,11 @@ header {
     color: #ffffff;
 }
 
+header .logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
 header .logo {
     margin: auto;
 }

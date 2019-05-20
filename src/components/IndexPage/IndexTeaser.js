@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class IndexTeaser extends React.Component {
     render() {
@@ -14,10 +15,11 @@ class IndexTeaser extends React.Component {
                         conocerás
                         nuevas personas de todas partes. Veas donde lo veas... ¡La diversión nunca acaba!
                     </p>
-
-                    <button>
-                        ¡Regístrate!
-                    </button>
+                    <Link to="/register">
+                        <button>
+                            ¡Regístrate!
+                        </button>
+                    </Link>
                 </div>
             </section>
         );

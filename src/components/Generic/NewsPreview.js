@@ -7,10 +7,10 @@ class NewsPreview extends React.Component {
                 <img alt="Imagen de la noticia" src="https://i.imgur.com/Pa5j9VS.png" />
                 <div>
                     <h2>
-                        Oleadas Publicitarias
+                        Un nuevo comienzo
                     </h2>
                     <p>
-                        Publicidad Oficial en el hotel ¿Quieres colaborarnos?
+                        Bobba abre sus puertas una vez más para ti, ¿estás preparado?
                     </p>
                     <a href="/articles/6-oleadas-publicitarias">Leer más.</a>
                 </div>

@@ -1,14 +1,12 @@
 import React from 'react';
+import Logo from '../Generic/Logo';
 
 class IndexHeader extends React.Component {
     render() {
         return (
             <header>
                 <div className="header_container">
-                    <div className="logo">
-                        <img alt="Bobba" src="/web-gallery/images/ghosthead.png" />
-                        <h1>Bobba</h1>
-                    </div>
+                    <Logo/>
                     <form>
                         <div className="input_group">
                             <label htmlFor="user">Usuario: </label>
