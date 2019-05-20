@@ -1,6 +1,7 @@
 import NProgress from 'nprogress';
 
 const API_URL = 'http://localhost:1232/';
+const FAKE_DELAY = 2000;
 
 export const tryFakeLogin = (username, password) => {
     return new Promise((resolve, reject) => {
@@ -15,13 +16,58 @@ export const tryFakeLogin = (username, password) => {
 
             const failedResponse = { error: 'password' };
 
+            NProgress.done();
             if (username === 'fail') {
-                NProgress.done();
                 resolve(failedResponse);
             }
+            resolve(okResponse);
+        }, FAKE_DELAY);
+    });
+};
+
+export const tryGetNewsFake = (id) => {
+    return new Promise((resolve, reject) => {
+        NProgress.start();
+        setTimeout(() => {
+            const okResponse = {
+                id,
+                title: '¿Qué ha pasado?',
+                description: 'Algunos extraños sucesos han aparecido en el hotel...',
+                image: 'https://i.imgur.com/M0MvbVO.png',
+                link: '4-que-ha-pasado',
+                content: '',
+            };
+
             NProgress.done();
             resolve(okResponse);
-        }, 2000);
+        }, FAKE_DELAY);
+    });
+};
+
+export const tryGetLastNewsFake = () => {
+    return new Promise((resolve, reject) => {
+        NProgress.start();
+        setTimeout(() => {
+            const okResponse = [{
+                id: 4,
+                title: 'Extraños sucesos',
+                description: '¿Alguien es capaz de explicar estos extraños comportamientos?',
+                image: 'https://i.imgur.com/M0MvbVO.png',
+                link: '4-extranos-sucesos',
+                content: '',
+            },
+            {
+                id: 5,
+                title: 'Un nuevo comienzo',
+                description: 'Bobba abre sus puertas una vez más para ti, ¿estás preparado?',
+                image: 'https://i.imgur.com/Pa5j9VS.png',
+                link: '5-un-nuevo-comienzo',
+                content: '',
+            }];
+
+            NProgress.done();
+            resolve(okResponse);
+        }, FAKE_DELAY);
     });
 };
 

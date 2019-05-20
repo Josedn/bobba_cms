@@ -1,22 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class NewsPreview extends React.Component {
     render() {
+        const { title, description, image, link } = this.props.article;
         return (
             <section className="news_preview">
-                <img alt="Imagen de la noticia" src="https://i.imgur.com/Pa5j9VS.png" />
+                <img alt="Imagen de la noticia" src={image} />
                 <div>
                     <h2>
-                        Un nuevo comienzo
+                        {title}
                     </h2>
                     <p>
-                        Bobba abre sus puertas una vez más para ti, ¿estás preparado?
+                        {description}
                     </p>
-                    <a href="/articles/6-oleadas-publicitarias">Leer más.</a>
+                    <Link to={"/articles/" + link}>Leer más.</Link>
                 </div>
             </section>
         );
     }
 }
+
+NewsPreview.propTypes = {
+    article: PropTypes.object
+};
 
 export default NewsPreview;

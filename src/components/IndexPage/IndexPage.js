@@ -1,21 +1,40 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Footer from '../Generic/Footer';
 import IndexTeaser from './IndexTeaser';
+import NewsPreviewSkeleton from '../Generic/NewsPreviewSkeleton';
 import NewsPreview from '../Generic/NewsPreview';
 import IndexHeaderContainer from '../../containers/IndexHeaderContainer';
 import NotLoggedRedirectorContainer from '../../containers/NotLoggedRedirectorContainer';
+import { tryGetLastNewsFake } from '../../controllers/BobbaProxy';
+import { addNewsList } from '../../actions';
 
 class IndexPage extends React.Component {
+    componentDidMount() {
+        const { newsFetched, newsFetching } = this.props.newsContext;
+        const { dispatch } = this.props;
+        if (!newsFetched && !newsFetching) {
+            tryGetLastNewsFake().then(list => {
+                dispatch(addNewsList(list));
+            });
+        }
+    }
     render() {
+        const { news } = this.props.newsContext;
+        let articlePreview = <NewsPreviewSkeleton />;
+        if (news.length > 0) {
+            articlePreview = <NewsPreview article={news[news.length - 1]} />
+        }
+
         return (
             <div className="index">
-                <NotLoggedRedirectorContainer/>
-                <IndexHeaderContainer/>
+                <NotLoggedRedirectorContainer />
+                <IndexHeaderContainer />
                 <article className="teaser">
-                    <IndexTeaser/>
+                    <IndexTeaser />
                 </article>
                 <article>
-                    <NewsPreview/>
+                    {articlePreview}
                 </article>
                 <Footer />
             </div>
@@ -23,4 +42,8 @@ class IndexPage extends React.Component {
     }
 }
 
-export default IndexPage;
+const mapStateToProps = state => ({
+    newsContext: state.news,
+});
+
+export default connect(mapStateToProps)(IndexPage);

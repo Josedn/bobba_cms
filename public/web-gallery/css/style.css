@@ -86,6 +86,25 @@ article .news_preview {
     padding: 0.5em 0;
 }
 
+article .news_preview.skeleton h2, 
+article .news_preview.skeleton p, 
+article .news_preview.skeleton span {
+    background-color: #ebebeb;
+    color: #ebebeb;
+}
+
+article .news_preview.skeleton ::selection {
+    background-color: #ebebeb;
+    color: #ebebeb;
+}
+
+article .news_preview.skeleton .img {
+    min-width: 300px;
+    min-height: 187px;
+    margin: 0 20px;
+    background-color: #ebebeb;
+}
+
 article .news_preview img {
     min-width: 300px;
     margin: 0 20px;

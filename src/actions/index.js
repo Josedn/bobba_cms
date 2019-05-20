@@ -1,6 +1,5 @@
 export const logIn = (username, motto, look, token) => ({
     type: 'LOG_IN',
-    loggedIn: true,
     username,
     motto,
     look,
@@ -9,5 +8,21 @@ export const logIn = (username, motto, look, token) => ({
 
 export const logOut = () => ({
     type: 'LOG_OUT',
-    loggedIn: false,
-}); 
+});
+
+export const addNews = (id, title, description, image, link, content) => ({
+    type: 'ADD_NEWS',
+    news: {
+        id,
+        title,
+        description,
+        image,
+        link,
+        content
+    },
+});
+
+export const addNewsList = (list) => ({
+    type: 'ADD_NEWS_LIST',
+    list,
+});
