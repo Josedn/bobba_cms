@@ -26,3 +26,8 @@ export const addNewsList = (list) => ({
     type: 'ADD_NEWS_LIST',
     list,
 });
+
+export const setOnlineCount = (count) => ({
+    type: 'SET_ONLINE_COUNT',
+    count,
+});

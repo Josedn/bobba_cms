@@ -23,7 +23,8 @@ class IndexPage extends React.Component {
         const { news } = this.props.newsContext;
         let articlePreview = <NewsPreviewSkeleton />;
         if (news.length > 0) {
-            articlePreview = <NewsPreview article={news[news.length - 1]} />
+            const currentArticle = news[news.length - 1];
+            articlePreview = <NewsPreview key={currentArticle.id} article={currentArticle} />
         }
 
         return (

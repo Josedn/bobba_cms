@@ -3,7 +3,7 @@ import NProgress from 'nprogress';
 const API_URL = 'http://localhost:1232/';
 const FAKE_DELAY = 2000;
 
-export const tryFakeLogin = (username, password) => {
+export const tryLoginFake = (username, password) => {
     return new Promise((resolve, reject) => {
         NProgress.start();
         setTimeout(() => {
@@ -20,6 +20,20 @@ export const tryFakeLogin = (username, password) => {
             if (username === 'fail') {
                 resolve(failedResponse);
             }
+            resolve(okResponse);
+        }, FAKE_DELAY);
+    });
+};
+
+export const tryGetOnlineCountFake = () => {
+    return new Promise((resolve, reject) => {
+        NProgress.start();
+        setTimeout(() => {
+            const okResponse = {
+                count: 2
+            };
+
+            NProgress.done();
             resolve(okResponse);
         }, FAKE_DELAY);
     });

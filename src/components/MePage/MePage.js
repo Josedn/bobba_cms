@@ -30,7 +30,8 @@ class MePage extends React.Component {
         if (news.length > 0) {
             articlePreview = [];
             for (let i = 0; i < news.length; i++) {
-                articlePreview.push(<NewsPreview article={news[i]} />);
+                const currentArticle = news[i];
+                articlePreview.push(<NewsPreview key={currentArticle.id} article={currentArticle} />);
             }
         }
 
