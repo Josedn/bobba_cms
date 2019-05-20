@@ -1,14 +1,14 @@
 import React from 'react';
 import Footer from '../Generic/Footer';
 import IndexTeaser from './IndexTeaser';
-import IndexHeader from './IndexHeader';
 import NewsPreview from '../Generic/NewsPreview';
+import IndexHeaderContainer from '../../containers/IndexHeaderContainer';
 
 class IndexPage extends React.Component {
     render() {
         return (
             <div className="index">
-                <IndexHeader/>
+                <IndexHeaderContainer/>
                 <article className="teaser">
                     <IndexTeaser/>
                 </article>
