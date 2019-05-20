@@ -54,7 +54,7 @@ class Register extends React.Component {
         }
 
         if (wrongUsername || wrongEmail || wrongPassword) {
-            errorMessage = 'Por favor rellena todos los campos';
+            errorMessage = 'Por favor, completa todos los campos';
         }
 
         if (errorMessage === '') {

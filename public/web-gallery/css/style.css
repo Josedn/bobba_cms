@@ -69,6 +69,43 @@ header p {
     margin: auto;
 }
 
+header input[type="text"], header input[type="password"] {
+    background-color: #5b5b5b;
+    border: 1px solid #efefef;
+}
+header input[type="text"].wrong, header input[type="password"].wrong {
+    border: 1px solid #f00000;
+}
+header form {
+    margin: auto;
+    display: flex;
+}
+
+header .input_group {
+    font-size: 0.9em;
+	margin-left: 15px;
+}
+
+header h1 {
+    font-family: 'Poiret One', sans-serif;
+    font-weight: inherit;
+    font-size: 3em;
+    text-transform: lowercase;
+    text-shadow: 0 0 2px #000000; /* ?? */
+    margin: auto;
+}
+
+.login_error {
+    position: absolute;
+    top: 0px;
+	display: block;
+	width: 100%;
+	text-align: center;
+	box-sizing: border-box;
+	background-color: #f00000;
+	font-size: 1em;
+}
+
 article {
 	background-color: #ffffff;
 	border: 1px solid #9d9e9e;
@@ -88,7 +125,8 @@ article .news_preview {
 
 article .news_preview.skeleton h2, 
 article .news_preview.skeleton p, 
-article .news_preview.skeleton span {
+article .news_preview.skeleton span,
+a.skeleton, div.skeleton {
     background-color: #ebebeb;
     color: #ebebeb;
 }
@@ -174,42 +212,6 @@ input[type="text"].wrong, input[type="password"].wrong, input[type="email"].wron
 }
 
 /* index */
-header input[type="text"], header input[type="password"] {
-    background-color: #5b5b5b;
-    border: 1px solid #efefef;
-}
-header input[type="text"].wrong, header input[type="password"].wrong {
-    border: 1px solid #f00000;
-}
-header form {
-    margin: auto;
-    display: flex;
-}
-
-header .input_group {
-    font-size: 0.9em;
-	margin-left: 15px;
-}
-
-header h1 {
-    font-family: 'Poiret One', sans-serif;
-    font-weight: inherit;
-    font-size: 3em;
-    text-transform: lowercase;
-    text-shadow: 0 0 2px #000000; /* ?? */
-    margin: auto;
-}
-
-.login_error {
-    position: absolute;
-    top: 0px;
-	display: block;
-	width: 100%;
-	text-align: center;
-	box-sizing: border-box;
-	background-color: #f00000;
-	font-size: 1em;
-}
 
 article.teaser img {
     min-width: 270px;

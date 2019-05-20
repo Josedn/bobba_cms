@@ -3,12 +3,33 @@ import { connect } from 'react-redux';
 import Footer from '../Generic/Footer';
 import HeaderContainer from '../../containers/HeaderContainer';
 import NewsPreviewSkeleton from '../Generic/NewsPreviewSkeleton';
-import NewsPreview from '../Generic/NewsPreview';
 import NavigatorContainer from '../../containers/NavigatorContainer';
-import { tryGetLastNewsFake } from '../../controllers/BobbaProxy';
+import { tryGetLastNewsFake, tryGetNewsFake } from '../../controllers/BobbaProxy';
 import { addNewsList } from '../../actions';
+import Article from './Article';
+import ArticleList from './ArticleList';
+import ArticleListSkeleton from './ArticleListSkeleton';
 
 class ArticlePage extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            currentArticle: null,
+        };
+    }
+
+    getIdFromUrl() {
+        const { pathname } = this.props.location;
+        const seo = pathname.split('/')[2];
+        if (seo != null) {
+            const id = seo.split('-')[0];
+            console.log(id);
+            return id;
+        }
+        return null;
+    }
 
     componentDidMount() {
         const { newsFetched, newsFetching } = this.props.newsContext;
@@ -18,35 +39,43 @@ class ArticlePage extends React.Component {
                 dispatch(addNewsList(list));
             });
         }
+
+        const id = this.getIdFromUrl();
+        if (id != null) {
+            tryGetNewsFake(id).then(article => {
+                this.setState({ currentArticle: article });
+            });
+        }
     }
 
     render() {
         const { news } = this.props.newsContext;
-        let articlePreview = <><NewsPreviewSkeleton /><NewsPreviewSkeleton /></>;
 
+        let articleList = <ArticleListSkeleton />;
         if (news.length > 0) {
-            articlePreview = [];
-            for (let i = 0; i < news.length; i++) {
-                const currentArticle = news[i];
-                articlePreview.push(<NewsPreview key={currentArticle.id} article={currentArticle} />);
-            }
+            articleList = <ArticleList list={news} />;
+        }
+
+        let { currentArticle } = this.state;
+        let article = <NewsPreviewSkeleton />;
+
+        if (currentArticle != null) {
+            article = <Article article={currentArticle} />
         }
 
         return (
             <div className="generic">
                 <HeaderContainer />
                 <NavigatorContainer />
-                <div className="column_container">
-                    <article className="left_column">
-                        
-                    </article>
-                    <article className="right_column">
-                        
-                    </article>
-                </div>
                 <article>
-                    <h1 className="blue">Últimas noticias</h1>
-                    {articlePreview}
+                    <h1 className="blue">Noticias</h1>
+                    <br />
+                    {article}
+                </article>
+
+                <article>
+                    <h1 className="green">Más noticias</h1>
+                    {articleList}
                 </article>
                 <Footer />
             </div>

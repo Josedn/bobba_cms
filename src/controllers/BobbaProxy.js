@@ -45,7 +45,7 @@ export const tryGetNewsFake = (id) => {
         setTimeout(() => {
             const okResponse = {
                 id,
-                title: '¿Qué ha pasado?',
+                title: '¿Qué ha pasado?' + id,
                 description: 'Algunos extraños sucesos han aparecido en el hotel...',
                 image: 'https://i.imgur.com/M0MvbVO.png',
                 link: '4-que-ha-pasado',
