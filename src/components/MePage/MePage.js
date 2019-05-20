@@ -2,16 +2,18 @@ import React from 'react';
 import Footer from '../Generic/Footer';
 import GenericHeader from '../Generic/GenericHeader';
 import NewsPreview from '../Generic/NewsPreview';
-import Navigator from '../Navigator/Navigator';
+import NavigatorContainer from '../../containers/NavigatorContainer';
 import Me from './Me';
 import Radio from './Radio';
+import LoggedRedirectorContainer from '../../containers/LoggedRedirectorContainer';
 
 class MePage extends React.Component {
     render() {
         return (
             <div className="generic">
+                <LoggedRedirectorContainer/>
                 <GenericHeader />
-                <Navigator />
+                <NavigatorContainer />
                 <div className="column_container">
                     <article className="left_column user">
                         <Me />

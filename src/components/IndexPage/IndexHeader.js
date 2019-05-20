@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../Generic/Logo';
 import { logIn } from '../../actions';
-import { Redirect } from 'react-router-dom';
+
 
 const initialState = {
     username: '',
@@ -45,8 +45,6 @@ class IndexHeader extends React.Component {
         if (errorMessage === '') {
 
             dispatch(logIn(this.state.username));
-
-            console.log("Dispatching...");
             this.setState(initialState);
         } else {
             this.setState({
@@ -65,9 +63,6 @@ class IndexHeader extends React.Component {
 
     render() {
         const { username, password, rememberme, errorMessage, wrongUsername, wrongPassword } = this.state;
-        const { loginContext } = this.props;
-
-        const { loggedIn } = loginContext;
 
         let errorContainer = null;
         if (errorMessage !== '') {
@@ -76,10 +71,6 @@ class IndexHeader extends React.Component {
 
         let usernameClassName = wrongUsername ? 'wrong' : '';
         let passwordClassName = wrongPassword ? 'wrong' : '';
-
-        if (loggedIn) {
-            return (<Redirect to="/me" />);
-        }
 
         return (
             <header>
