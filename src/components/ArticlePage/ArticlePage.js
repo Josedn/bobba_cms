@@ -1,17 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Footer from '../Generic/Footer';
+import HeaderContainer from '../../containers/HeaderContainer';
 import NewsPreviewSkeleton from '../Generic/NewsPreviewSkeleton';
 import NewsPreview from '../Generic/NewsPreview';
 import NavigatorContainer from '../../containers/NavigatorContainer';
-import MeContainer from '../../containers/MeContainer';
-import Radio from './Radio';
-import LoggedRedirectorContainer from '../../containers/LoggedRedirectorContainer';
 import { tryGetLastNewsFake } from '../../controllers/BobbaProxy';
 import { addNewsList } from '../../actions';
-import HeaderContainer from '../../containers/HeaderContainer';
 
-class MePage extends React.Component {
+class ArticlePage extends React.Component {
 
     componentDidMount() {
         const { newsFetched, newsFetching } = this.props.newsContext;
@@ -37,15 +34,14 @@ class MePage extends React.Component {
 
         return (
             <div className="generic">
-                <LoggedRedirectorContainer />
-                <HeaderContainer/>
+                <HeaderContainer />
                 <NavigatorContainer />
                 <div className="column_container">
-                    <article className="left_column user">
-                        <MeContainer />
+                    <article className="left_column">
+                        
                     </article>
                     <article className="right_column">
-                        <Radio />
+                        
                     </article>
                 </div>
                 <article>
@@ -61,4 +57,4 @@ const mapStateToProps = state => ({
     newsContext: state.news,
 });
 
-export default connect(mapStateToProps)(MePage);
+export default connect(mapStateToProps)(ArticlePage);

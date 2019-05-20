@@ -4,10 +4,10 @@ import Footer from '../Generic/Footer';
 import IndexTeaser from './IndexTeaser';
 import NewsPreviewSkeleton from '../Generic/NewsPreviewSkeleton';
 import NewsPreview from '../Generic/NewsPreview';
-import IndexHeaderContainer from '../../containers/IndexHeaderContainer';
 import NotLoggedRedirectorContainer from '../../containers/NotLoggedRedirectorContainer';
 import { tryGetLastNewsFake } from '../../controllers/BobbaProxy';
 import { addNewsList } from '../../actions';
+import HeaderContainer from '../../containers/HeaderContainer';
 
 class IndexPage extends React.Component {
     componentDidMount() {
@@ -30,7 +30,7 @@ class IndexPage extends React.Component {
         return (
             <div className="index">
                 <NotLoggedRedirectorContainer />
-                <IndexHeaderContainer />
+                <HeaderContainer />
                 <article className="teaser">
                     <IndexTeaser />
                 </article>

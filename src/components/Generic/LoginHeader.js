@@ -12,7 +12,7 @@ const initialState = {
     wrongUsername: false,
 };
 
-class IndexHeader extends React.Component {
+class LoginHeader extends React.Component {
 
     constructor(props) {
         super(props);
@@ -115,4 +115,4 @@ class IndexHeader extends React.Component {
     }
 }
 
-export default IndexHeader;
+export default LoginHeader;

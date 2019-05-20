@@ -174,19 +174,19 @@ input[type="text"].wrong, input[type="password"].wrong, input[type="email"].wron
 }
 
 /* index */
-.index input[type="text"], .index input[type="password"] {
+header input[type="text"], header input[type="password"] {
     background-color: #5b5b5b;
     border: 1px solid #efefef;
 }
-.index input[type="text"].wrong, .index input[type="password"].wrong {
+header input[type="text"].wrong, header input[type="password"].wrong {
     border: 1px solid #f00000;
 }
-.index form {
+header form {
     margin: auto;
     display: flex;
 }
 
-.index .input_group {
+header .input_group {
     font-size: 0.9em;
 	margin-left: 15px;
 }

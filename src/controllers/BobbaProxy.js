@@ -64,18 +64,18 @@ export const tryGetLastNewsFake = () => {
         setTimeout(() => {
             const okResponse = [{
                 id: 4,
-                title: 'Extraños sucesos',
-                description: '¿Alguien es capaz de explicar estos extraños comportamientos?',
-                image: 'https://i.imgur.com/M0MvbVO.png',
-                link: '4-extranos-sucesos',
+                title: 'Un nuevo comienzo',
+                description: 'Bobba abre sus puertas una vez más para ti, ¿estás preparado?',
+                image: 'https://i.imgur.com/Pa5j9VS.png',
+                link: '4-un-nuevo-comienzo',
                 content: '',
             },
             {
                 id: 5,
-                title: 'Un nuevo comienzo',
-                description: 'Bobba abre sus puertas una vez más para ti, ¿estás preparado?',
-                image: 'https://i.imgur.com/Pa5j9VS.png',
-                link: '5-un-nuevo-comienzo',
+                title: 'Extraños sucesos',
+                description: '¿Alguien es capaz de explicar estos extraños comportamientos?',
+                image: 'https://i.imgur.com/M0MvbVO.png',
+                link: '5-extranos-sucesos',
                 content: '',
             }];
 
