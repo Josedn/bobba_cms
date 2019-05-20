@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../Generic/Logo';
 import { logIn } from '../../actions';
-
+import { tryLogin } from '../../controllers/BobbaProxy';
 
 const initialState = {
     username: '',
@@ -44,8 +44,18 @@ class IndexHeader extends React.Component {
         }
         if (errorMessage === '') {
 
-            dispatch(logIn(this.state.username));
-            this.setState(initialState);
+            tryLogin(this.state.username, this.state.password)
+                .then(response => {
+                    dispatch(logIn(response.username, response.motto, response.look, response.token));
+                }).catch(err => {
+                    this.setState({
+                        wrongUsername: false,
+                        wrongPassword: true,
+                        password: '',
+                        errorMessage: err.message
+                    });
+                });
+            //this.setState(initialState);
         } else {
             this.setState({
                 wrongUsername, wrongPassword, errorMessage

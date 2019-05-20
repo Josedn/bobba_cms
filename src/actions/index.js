@@ -1,7 +1,10 @@
-export const logIn = username => ({
+export const logIn = (username, motto, look, token) => ({
     type: 'LOG_IN',
     loggedIn: true,
-    username
+    username,
+    motto,
+    look,
+    token
 });
 
 export const logOut = () => ({

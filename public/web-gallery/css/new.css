@@ -124,6 +124,10 @@ input[type="submit"]:hover {
     background-color: #37be70;    
 }
 
+input[type="text"].wrong, input[type="password"].wrong, input[type="email"].wrong {
+    border: 1px solid #f00000;
+}
+
 ::placeholder {
     color: #aaaaaa;
 }

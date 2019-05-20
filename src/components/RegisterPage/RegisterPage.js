@@ -1,7 +1,7 @@
 import React from 'react';
 import Footer from '../Generic/Footer';
 import GenericHeader from '../Generic/GenericHeader';
-import Register from './Register';
+import RegisterContainer from '../../containers/RegisterContainer';
 import Welcome from './Welcome';
 
 class MePage extends React.Component {
@@ -11,7 +11,7 @@ class MePage extends React.Component {
                 <GenericHeader />
                 <div className="column_container">
                     <article className="left_column">
-                        <Register />
+                        <RegisterContainer />
                     </article>
                     <article className="right_column">
                         <Welcome />

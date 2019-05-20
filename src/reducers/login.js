@@ -1,6 +1,9 @@
 const defaultState = {
     loggedIn: false,
     username: '',
+    motto: '',
+    look: '',
+    token: '',
 };
 
 const login = (state = defaultState, action) => {
@@ -9,12 +12,12 @@ const login = (state = defaultState, action) => {
             return {
                 loggedIn: true,
                 username: action.username,
+                motto: action.motto,
+                look: action.look,
+                token: action.token,
             };
         case "LOG_OUT":
-            return {
-                loggedIn: false,
-                username: '',
-            };
+            return Object.assign({}, defaultState);
         default:
             return state;
 
