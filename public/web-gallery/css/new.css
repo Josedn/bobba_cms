@@ -6,7 +6,8 @@ body {
     background-image: url(../images/hotel.png), url(../images/background_new.png);
     background-repeat: no-repeat, repeat;
     background-position: -476px 209px, 0 0;
-    font-family: 'Ubuntu', Verdana, sans-serif;
+    font-family: 'Raleway', Verdana, sans-serif;
+    font-weight: 300;
     color: #000000;
 }
 
@@ -113,10 +114,6 @@ input[type="text"], input[type="email"], input[type="password"], input[type="sub
     display: block;
 }
 
-input.wrong {
-    border: 1px solid #f00000;
-}
-
 input[type="submit"] {
     background-color: #27ae60;
     border-color: #2d6c48;
@@ -159,6 +156,9 @@ input[type="submit"]:hover {
     background-color: #5b5b5b;
     border: 1px solid #efefef;
 }
+.index input[type="text"].wrong, .index input[type="password"].wrong {
+    border: 1px solid #f00000;
+}
 .index form {
     margin: auto;
     display: flex;
@@ -171,7 +171,7 @@ input[type="submit"]:hover {
 
 header h1 {
     font-family: 'Poiret One', sans-serif;
-    font-weight: 300;
+    font-weight: inherit;
     font-size: 3em;
     text-transform: lowercase;
     text-shadow: 0 0 2px #000000; /* ?? */
