@@ -25,7 +25,7 @@ export const tryLoginFake = (username, password) => {
     });
 };
 
-export const tryGetOnlineCountFake = () => {
+export const tryGetOnlineCountFake2 = () => {
     return new Promise((resolve, reject) => {
         NProgress.start();
         setTimeout(() => {
@@ -39,7 +39,7 @@ export const tryGetOnlineCountFake = () => {
     });
 };
 
-export const tryGetNewsFake = (id) => {
+export const tryGetNewsFake2 = (id) => {
     return new Promise((resolve, reject) => {
         NProgress.start();
         setTimeout(() => {
@@ -58,7 +58,7 @@ export const tryGetNewsFake = (id) => {
     });
 };
 
-export const tryGetLastNewsFake = () => {
+export const tryGetLastNewsFake2 = () => {
     return new Promise((resolve, reject) => {
         NProgress.start();
         setTimeout(() => {
@@ -82,6 +82,84 @@ export const tryGetLastNewsFake = () => {
             NProgress.done();
             resolve(okResponse);
         }, FAKE_DELAY);
+    });
+};
+
+export const tryGetLastNews = () => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        const options = {
+            method: 'GET',
+            mode: 'cors',
+            headers,
+        };
+
+        fetch(API_URL + 'articles', options)
+            .then(response => response.json())
+            .then(data => {
+                NProgress.done();
+                resolve(data);
+            })
+            .catch(err => {
+                NProgress.done();
+                reject(err);
+            });
+    });
+};
+
+export const tryGetNews = (id) => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        const options = {
+            method: 'GET',
+            mode: 'cors',
+            headers,
+        };
+
+        fetch(API_URL + 'articles/' + id, options)
+            .then(response => response.json())
+            .then(data => {
+                NProgress.done();
+                resolve(data);
+            })
+            .catch(err => {
+                NProgress.done();
+                reject(err);
+            });
+    });
+};
+
+export const tryGetOnlineCount = () => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+
+        const headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+
+        const options = {
+            method: 'GET',
+            mode: 'cors',
+            headers,
+        };
+
+        fetch(API_URL + 'onlines', options)
+            .then(response => response.json())
+            .then(data => {
+                NProgress.done();
+                resolve({count: data});
+            })
+            .catch(err => {
+                NProgress.done();
+                reject(err);
+            });
     });
 };
 
