@@ -5,8 +5,8 @@ import IndexTeaser from './IndexTeaser';
 import NewsPreviewSkeleton from '../Generic/NewsPreviewSkeleton';
 import NewsPreview from '../Generic/NewsPreview';
 import NotLoggedRedirectorContainer from '../../containers/NotLoggedRedirectorContainer';
-import { tryGetLastNews } from '../../controllers/BobbaProxy';
-import { addNewsList } from '../../actions';
+import { tryGetLastArticles } from '../../controllers/BobbaProxy';
+import { addNewsList, beginFetchNews } from '../../actions';
 import HeaderContainer from '../../containers/HeaderContainer';
 
 class IndexPage extends React.Component {
@@ -14,7 +14,8 @@ class IndexPage extends React.Component {
         const { newsFetched, newsFetching } = this.props.newsContext;
         const { dispatch } = this.props;
         if (!newsFetched && !newsFetching) {
-            tryGetLastNews().then(list => {
+            dispatch(beginFetchNews());
+            tryGetLastArticles().then(list => {
                 dispatch(addNewsList(list));
             });
         }

@@ -86,7 +86,7 @@ export const tryGetLastNewsFake2 = () => {
     });
 };
 
-export const tryGetLastNews = () => {
+export const tryGetLastArticles = () => {
     NProgress.start();
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -113,7 +113,7 @@ export const tryGetLastNews = () => {
     });
 };
 
-export const tryGetNews = (id) => {
+export const tryGetArticle = (id) => {
     NProgress.start();
     return new Promise((resolve, reject) => {
         setTimeout(() => {
