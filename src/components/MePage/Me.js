@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 class Me extends React.Component {
     render() {
@@ -22,4 +23,8 @@ class Me extends React.Component {
     }
 }
 
-export default Me;
+const mapStateToProps = state => ({
+    loginContext: state.login,
+});
+
+export default connect(mapStateToProps)(Me);

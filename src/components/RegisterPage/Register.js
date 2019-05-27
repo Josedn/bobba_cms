@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { logIn } from '../../actions';
 import { tryRegister } from '../../controllers/BobbaProxy';
 
@@ -160,4 +161,4 @@ class Register extends React.Component {
     }
 }
 
-export default Register;
+export default connect()(Register);
