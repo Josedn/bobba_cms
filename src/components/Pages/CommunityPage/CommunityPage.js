@@ -1,24 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Footer from '../Generic/Footer';
-import Navigator from '../Navigator/Navigator';
-import LoggedRedirectorContainer from '../../containers/LoggedRedirectorContainer';
-import HeaderContainer from '../../containers/HeaderContainer';
+import Footer from '../../Generic/Footer';
+import Navigator from '../../Navigator/Navigator';
+import HeaderContainer from '../../../containers/HeaderContainer';
+import './community.css';
 
-class SettingsPage extends React.Component {
+class CommunityPage extends React.Component {
 
     render() {
         return (
             <div className="generic">
-                <LoggedRedirectorContainer />
                 <HeaderContainer />
                 <Navigator />
                 <div className="column_container">
                     <article className="left_column">
-                        <h1 className="blue">Contenido</h1>
+                        <h1 className="blue">Usuarios</h1>
                     </article>
                     <article className="right_column">
-                        <h1 className="green">Información</h1>
+                        <h1 className="green">Objetos</h1>
                         <ul>
                             <li><a href="/manage">Contraseña</a></li>
                         </ul>
@@ -30,4 +29,4 @@ class SettingsPage extends React.Component {
     }
 }
 
-export default connect()(SettingsPage);
+export default connect()(CommunityPage);

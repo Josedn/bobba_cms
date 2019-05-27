@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Footer from '../Generic/Footer';
+import Footer from '../../Generic/Footer';
 import IndexTeaser from './IndexTeaser';
-import ArticlePreviewSkeleton from '../Generic/Articles/ArticlePreviewSkeleton';
-import ArticlePreview from '../Generic/Articles/ArticlePreview';
-import NotLoggedRedirectorContainer from '../../containers/NotLoggedRedirectorContainer';
-import { tryGetLastArticles } from '../../controllers/BobbaProxy';
-import { addNewsList, beginFetchNews } from '../../actions';
-import HeaderContainer from '../../containers/HeaderContainer';
+import ArticlePreviewSkeleton from '../../Generic/Articles/ArticlePreviewSkeleton';
+import ArticlePreview from '../../Generic/Articles/ArticlePreview';
+import NotLoggedRedirectorContainer from '../../../containers/NotLoggedRedirectorContainer';
+import { tryGetLastArticles } from '../../../controllers/BobbaProxy';
+import { addNewsList, beginFetchNews } from '../../../actions';
+import HeaderContainer from '../../../containers/HeaderContainer';
 
 class IndexPage extends React.Component {
     componentDidMount() {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logIn } from '../../actions';
-import { tryRegister } from '../../controllers/BobbaProxy';
+import { logIn } from '../../../actions';
+import { tryRegister } from '../../../controllers/BobbaProxy';
 
 const initialState = {
     username: '',

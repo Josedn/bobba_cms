@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import IndexPage from './IndexPage/IndexPage';
-import RegisterPage from './RegisterPage/RegisterPage';
-import ArticlePage from './ArticlePage/ArticlePage';
-import MePage from './MePage/MePage';
-import SettingsPage from './SettingsPage/SettingsPage';
-import CommunityPage from './CommunityPage/CommunityPage';
+import IndexPage from './Pages/IndexPage/IndexPage';
+import RegisterPage from './Pages/RegisterPage/RegisterPage';
+import ArticlePage from './Pages/ArticlePage/ArticlePage';
+import MePage from './Pages/MePage/MePage';
+import SettingsPage from './Pages/SettingsPage/SettingsPage';
+import CommunityPage from './Pages/CommunityPage/CommunityPage';
 
 function App() {
     return (

@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Footer from '../Generic/Footer';
-import ArticlePreviewSkeleton from '../Generic/Articles/ArticlePreviewSkeleton';
-import ArticlePreview from '../Generic/Articles/ArticlePreview';
-import Navigator from '../Navigator/Navigator';
+import Footer from '../../Generic/Footer';
+import ArticlePreviewSkeleton from '../../Generic/Articles/ArticlePreviewSkeleton';
+import ArticlePreview from '../../Generic/Articles/ArticlePreview';
+import Navigator from '../../Navigator/Navigator';
 import Radio from './Radio';
-import LoggedRedirectorContainer from '../../containers/LoggedRedirectorContainer';
-import { tryGetLastArticles } from '../../controllers/BobbaProxy';
-import { addNewsList, beginFetchNews } from '../../actions';
-import HeaderContainer from '../../containers/HeaderContainer';
+import LoggedRedirectorContainer from '../../../containers/LoggedRedirectorContainer';
+import { tryGetLastArticles } from '../../../controllers/BobbaProxy';
+import { addNewsList, beginFetchNews } from '../../../actions';
+import HeaderContainer from '../../../containers/HeaderContainer';
 import Me from './Me';
 
 class MePage extends React.Component {

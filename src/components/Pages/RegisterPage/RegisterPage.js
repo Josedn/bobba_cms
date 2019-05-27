@@ -1,7 +1,7 @@
 import React from 'react';
-import Footer from '../Generic/Footer';
-import GenericHeader from '../Generic/Header/GenericHeader';
-import NotLoggedRedirectorContainer from '../../containers/NotLoggedRedirectorContainer';
+import Footer from '../../Generic/Footer';
+import GenericHeader from '../../Generic/Header/GenericHeader';
+import NotLoggedRedirectorContainer from '../../../containers/NotLoggedRedirectorContainer';
 import Welcome from './Welcome';
 import Register from './Register';
 
