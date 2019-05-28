@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { getClientUrl } from '../../../controllers/BobbaProxy';
 
 class Me extends React.Component {
-    popClient = () => {
+    popClient = (event) => {
+        event.preventDefault();
         const { username, look } = this.props.loginContext;
-        window.open(getClientUrl(username, look), 'Bobba', 'width=980,height=600,location=no,status=no,menubar=no,directories=no,toolbar=no,resizable=no,scrollbars=no'); return false;
+        window.open(getClientUrl(username, look), 'Bobba', 'width=980,height=600,location=no,status=no,menubar=no,directories=no,toolbar=no,resizable=no,scrollbars=no'); 
+        return false;
     }
     render() {
         const { username, motto, look } = this.props.loginContext;
