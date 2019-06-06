@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getClientUrl } from '../../../controllers/BobbaProxy';
+import { RIETextArea } from 'riek2';
 
 class Me extends React.Component {
     popClient = (event) => {
         event.preventDefault();
         const { username, look } = this.props.loginContext;
-        window.open(getClientUrl(username, look), 'Bobba', 'width=980,height=600,location=no,status=no,menubar=no,directories=no,toolbar=no,resizable=no,scrollbars=no'); 
+        window.open(getClientUrl(username, look), 'Bobba', 'width=980,height=600,location=no,status=no,menubar=no,directories=no,toolbar=no,resizable=no,scrollbars=no');
         return false;
     }
     render() {
@@ -20,7 +21,11 @@ class Me extends React.Component {
                 </div>
                 <div className="user_info">
                     <h3>{username}</h3>
-                    <p>{motto}</p>
+                    <RIETextArea
+                        value={motto}
+                        change={() => { }}
+                        propName='motto'
+                        validate={() => {return true; }} />
                     <button onClick={this.popClient}>
                         Entrar al hotel
                     </button>
