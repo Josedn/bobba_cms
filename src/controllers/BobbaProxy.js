@@ -26,6 +26,20 @@ export const tryLoginFake = (username, password) => {
     });
 };
 
+export const changeMottoFake = (token, motto) => {
+    return new Promise((resolve, reject) => {
+        NProgress.start();
+        setTimeout(() => {
+            const okResponse = {
+                motto,
+            };
+
+            NProgress.done();
+            resolve(okResponse);
+        }, FAKE_DELAY);
+    });
+};
+
 export const tryGetOnlineCountFake2 = () => {
     return new Promise((resolve, reject) => {
         NProgress.start();
