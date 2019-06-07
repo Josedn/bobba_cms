@@ -6,6 +6,7 @@ import ArticlePage from './Pages/ArticlePage/ArticlePage';
 import MePage from './Pages/MePage/MePage';
 import SettingsPage from './Pages/SettingsPage/SettingsPage';
 import CommunityPage from './Pages/CommunityPage/CommunityPage';
+import ClientPage from './Pages/ClientPage/ClientPage';
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
             <Switch>
                 <Route path="/me" component={MePage} />
                 <Route path="/articles" component={ArticlePage} />
+                <Route path="/client" component={ClientPage} />
                 <Route path="/register" component={RegisterPage} />
                 <Route path="/settings" component={SettingsPage} />
                 <Route path="/community" component={CommunityPage} />

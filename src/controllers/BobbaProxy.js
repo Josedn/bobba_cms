@@ -1,8 +1,8 @@
 import NProgress from 'nprogress';
 
 const API_URL = 'http://api.bobba.io:1232/';
-const FAKE_DELAY = 2000;
-const DELAY = 800;
+const FAKE_DELAY = 250;
+const DELAY = 0;
 
 export const tryLoginFake = (username, password) => {
     return new Promise((resolve, reject) => {

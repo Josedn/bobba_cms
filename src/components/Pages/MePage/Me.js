@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getClientUrl, changeMottoFake } from '../../../controllers/BobbaProxy';
+import { changeMottoFake } from '../../../controllers/BobbaProxy';
 import { RIEInput } from 'riek2';
 
 class Me extends React.Component {
@@ -15,8 +15,7 @@ class Me extends React.Component {
 
     popClient = event => {
         event.preventDefault();
-        const { username, look } = this.props.loginContext;
-        window.open(getClientUrl(username, look), 'Bobba', 'width=980,height=600,location=no,status=no,menubar=no,directories=no,toolbar=no,resizable=no,scrollbars=no');
+        window.open('/client', 'Bobba', 'width=980,height=600,location=no,status=no,menubar=no,directories=no,toolbar=no,resizable=no,scrollbars=no');
         return false;
     }
 
