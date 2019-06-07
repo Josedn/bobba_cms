@@ -10,7 +10,7 @@ import { tryGetLastArticles } from '../../../controllers/BobbaProxy';
 import { addNewsList, beginFetchNews } from '../../../actions';
 import HeaderContainer from '../../../containers/HeaderContainer';
 import Me from './Me';
-
+const MAX_ARTICLES_PER_PAGE = 2;
 class MePage extends React.Component {
 
     componentDidMount() {
@@ -30,7 +30,7 @@ class MePage extends React.Component {
 
         if (news.length > 0) {
             articlePreview = [];
-            for (let i = 0; i < news.length; i++) {
+            for (let i = 0; i < Math.min(news.length, MAX_ARTICLES_PER_PAGE); i++) {
                 const currentArticle = news[i];
                 articlePreview.push(<ArticlePreview key={currentArticle.id} article={currentArticle} />);
             }
@@ -39,11 +39,11 @@ class MePage extends React.Component {
         return (
             <div className="generic">
                 <LoggedRedirectorContainer />
-                <HeaderContainer/>
+                <HeaderContainer />
                 <Navigator />
                 <div className="column_container">
                     <article className="left_column user">
-                        <Me/>
+                        <Me />
                     </article>
                     <article className="right_column">
                         <Radio />

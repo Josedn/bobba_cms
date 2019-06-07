@@ -53,6 +53,7 @@ class Navigator extends React.Component {
                     <ul>
                         <li><NavLink activeClassName="selected" to="/me">{username}</NavLink></li>
                         <li><NavLink activeClassName="selected" to="/articles">Noticias</NavLink></li>
+                        <li><NavLink activeClassName="selected" to="/community">Comunidad</NavLink></li>
                         {navOptions}
                     </ul>
                 </div>

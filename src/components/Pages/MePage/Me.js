@@ -24,7 +24,10 @@ class Me extends React.Component {
 
     render() {
         const { username, look, motto } = this.props.userContext;
-        const lookUrl = '//www.habbo.com/habbo-imaging/avatarimage?figure=' + look + '&size=l&direction=2&gesture=sml';
+        let lookUrl = '/web-gallery/images/habbo_skeleton.gif';
+        if (look !== '') {
+            lookUrl = '//www.habbo.com/habbo-imaging/avatarimage?figure=' + look + '&size=l&direction=2&gesture=sml';
+        }
 
         return (
             <>
