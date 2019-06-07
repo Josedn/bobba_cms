@@ -192,21 +192,21 @@ input[type="text"].wrong, input[type="password"].wrong, input[type="email"].wron
 
 /* register */
 
-.register .input_group {
+.form .input_group {
     margin: 10px;
     font-size: 0.9em;
 }
 
-.register .input_group label {
+.form .input_group label {
     font-size: 1.4em;
 }
 
-.register .input_group p {
+.form .input_group p {
     font-size: 0.8em;
     margin-top: 0.2em;
 }
 
-.register input[type="submit"] {
+.form input[type="submit"] {
     float: right;
 }
 
@@ -399,6 +399,10 @@ article.user button {
 
 article.user button:hover {
     background-color: #37be70;
+}
+
+article .bold {
+    font-weight: bold;
 }
 
 /* footer */
