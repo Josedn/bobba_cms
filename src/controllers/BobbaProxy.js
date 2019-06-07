@@ -248,6 +248,36 @@ export const tryRegister = (username, email, password) => {
     });
 };
 
+
+export const tryGetUserData = (token) => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('token', token);
+
+            const options = {
+                method: 'GET',
+                mode: 'cors',
+                headers,
+            };
+
+            fetch(API_URL + 'user', options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve(data);
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
+    });
+};
+
 export const tryPatchUser = (token, data) => {
     NProgress.start();
     return new Promise((resolve, reject) => {

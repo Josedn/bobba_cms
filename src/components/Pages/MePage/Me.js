@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { tryPatchUser } from '../../../controllers/BobbaProxy';
-import {logIn} from '../../../actions';
+import { userSetData } from '../../../actions';
 import { RIEInput } from 'riek2';
 
 class Me extends React.Component {
@@ -17,13 +17,13 @@ class Me extends React.Component {
 
         tryPatchUser(loginContext.token, { motto: allegedMotto }).then(response => {
             if (response.error == null) {
-                dispatch(logIn(response.username, response.motto, response.look, response.token));
+                dispatch(userSetData(response.username, response.motto, response.look));
             }
         });
     }
 
     render() {
-        const { username, look, motto } = this.props.loginContext;
+        const { username, look, motto } = this.props.userContext;
         const lookUrl = '//www.habbo.com/habbo-imaging/avatarimage?figure=' + look + '&size=l&direction=2&gesture=sml';
 
         return (
@@ -51,6 +51,7 @@ class Me extends React.Component {
 }
 
 const mapStateToProps = state => ({
+    userContext: state.user,
     loginContext: state.login,
 });
 
