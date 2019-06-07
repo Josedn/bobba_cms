@@ -1,18 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { changeMottoFake } from '../../../controllers/BobbaProxy';
+import { tryPatchUser } from '../../../controllers/BobbaProxy';
+import {logIn} from '../../../actions';
 import { RIEInput } from 'riek2';
 
 class Me extends React.Component {
-
-    constructor(props) {
-        super(props);
-        const { motto } = this.props.loginContext;
-        this.state = {
-            motto
-        };
-    }
-
     popClient = event => {
         event.preventDefault();
         window.open('/client', 'Bobba', 'width=980,height=600,location=no,status=no,menubar=no,directories=no,toolbar=no,resizable=no,scrollbars=no');
@@ -21,16 +13,17 @@ class Me extends React.Component {
 
     handleChangeMotto = data => {
         const allegedMotto = data.motto;
-        const { token } = this.props.loginContext;
+        const { loginContext, dispatch } = this.props;
 
-        changeMottoFake(token, allegedMotto).then(response => {
-            this.setState({ motto: response.motto });
+        tryPatchUser(loginContext.token, { motto: allegedMotto }).then(response => {
+            if (response.error == null) {
+                dispatch(logIn(response.username, response.motto, response.look, response.token));
+            }
         });
     }
 
     render() {
-        const { username, look } = this.props.loginContext;
-        const { motto } = this.state;
+        const { username, look, motto } = this.props.loginContext;
         const lookUrl = '//www.habbo.com/habbo-imaging/avatarimage?figure=' + look + '&size=l&direction=2&gesture=sml';
 
         return (

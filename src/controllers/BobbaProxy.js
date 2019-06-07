@@ -1,6 +1,6 @@
 import NProgress from 'nprogress';
 
-const API_URL = 'http://api.bobba.io:1232/';
+const API_URL = 'http://localhost:1232/';
 const FAKE_DELAY = 250;
 const DELAY = 0;
 
@@ -235,6 +235,37 @@ export const tryRegister = (username, email, password) => {
             };
 
             fetch(API_URL + 'register', options)
+                .then(response => response.json())
+                .then(data => {
+                    NProgress.done();
+                    resolve(data);
+                })
+                .catch(err => {
+                    NProgress.done();
+                    reject(err);
+                });
+        }, DELAY);
+    });
+};
+
+export const tryPatchUser = (token, data) => {
+    NProgress.start();
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const body = JSON.stringify(data);
+
+            const headers = new Headers();
+            headers.append('Content-Type', 'application/json');
+            headers.append('token', token);
+
+            const options = {
+                method: 'PATCH',
+                mode: 'cors',
+                headers,
+                body
+            };
+
+            fetch(API_URL + 'user', options)
                 .then(response => response.json())
                 .then(data => {
                     NProgress.done();
