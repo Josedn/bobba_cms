@@ -1,7 +1,7 @@
 const defaultState = {
     fetched: false,
     username: '',
-    motto: 'motto',
+    motto: '',
     look: '',
     token: '',
 };

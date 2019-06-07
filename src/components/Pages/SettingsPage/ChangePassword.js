@@ -96,7 +96,7 @@ class ChangePassword extends React.Component {
 
         return (
             <>
-                <h1 className="green">Registro</h1>
+                <h1 className="green">Cambiar contraseña</h1>
                 {errorContainer}
                 {messageContainer}
                 <form onSubmit={this.handleSubmit}>
