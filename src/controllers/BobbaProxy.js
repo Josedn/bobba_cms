@@ -1,6 +1,6 @@
 import NProgress from 'nprogress';
 
-const API_URL = 'http://localhost:1232/';
+const API_URL = 'http://api.bobba.io:1232/';
 const FAKE_DELAY = 250;
 const DELAY = 0;
 
@@ -26,13 +26,13 @@ export const tryLoginFake = (username, password) => {
     });
 };
 
-export const patchUserFake = (token, motto) => {
+export const patchUserFake = (token, data) => {
     return new Promise((resolve, reject) => {
         NProgress.start();
         setTimeout(() => {
             const okResponse = {
                 username: 'Jose',
-                motto,
+                motto: data.motto,
                 look: 'ca-1811-62.lg-3018-81.hr-836-45.ch-669-1193.hd-600-10',
                 token,
             };
