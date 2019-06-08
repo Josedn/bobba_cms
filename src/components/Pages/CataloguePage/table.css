@@ -29,3 +29,27 @@ tbody tr:hover {
     background: #eeffee;
     cursor: pointer;
 }
+
+.furnifinder ul {
+    font-weight: bold;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    padding: .5em 1em;
+}
+.furnifinder .pages {
+    text-align: center;
+    margin: 0.2em 0 0 0;
+}
+
+.furnifinder li {
+    margin: auto;
+    cursor: pointer;
+}
+
+.furnifinder li:hover {
+    color: #888888;
+}
