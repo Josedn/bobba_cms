@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch, NavLink, Redirect } from "react-router-dom";
 import Footer from '../../Generic/Footer';
-import Navigator from '../../Navigator/Navigator';
+import Navigator from '../../Navigator';
 import LoggedRedirectorContainer from '../../../containers/LoggedRedirectorContainer';
 import HeaderContainer from '../../../containers/HeaderContainer';
 import ChangePassword from './ChangePassword';

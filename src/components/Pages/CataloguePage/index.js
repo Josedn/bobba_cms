@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Footer from '../../Generic/Footer';
-import Navigator from '../../Navigator/Navigator';
+import Navigator from '../../Navigator';
 import HeaderContainer from '../../../containers/HeaderContainer';
 
 class CataloguePage extends React.Component {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Footer from '../../Generic/Footer';
 import ArticlePreviewSkeleton from '../../Generic/Articles/ArticlePreviewSkeleton';
 import ArticlePreview from '../../Generic/Articles/ArticlePreview';
-import Navigator from '../../Navigator/Navigator';
+import Navigator from '../../Navigator';
 import Radio from './Radio';
 import LoggedRedirectorContainer from '../../../containers/LoggedRedirectorContainer';
 import { tryGetLastArticles } from '../../../controllers/BobbaProxy';
