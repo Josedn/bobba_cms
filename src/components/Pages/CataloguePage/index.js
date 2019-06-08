@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import Footer from '../../Generic/Footer';
 import Navigator from '../../Navigator/Navigator';
 import HeaderContainer from '../../../containers/HeaderContainer';
-import './community.css';
 
-class CommunityPage extends React.Component {
+class CataloguePage extends React.Component {
 
     render() {
         return (
-            <div className="generic">
+            <div className="generic form">
                 <HeaderContainer />
                 <Navigator />
                 <div className="column_container">
@@ -29,4 +28,4 @@ class CommunityPage extends React.Component {
     }
 }
 
-export default connect()(CommunityPage);
+export default connect()(CataloguePage);
