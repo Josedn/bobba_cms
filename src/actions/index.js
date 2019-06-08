@@ -14,6 +14,11 @@ export const userSetData = (username, motto, look) => ({
     look,
 });
 
+export const furnidataSet = furnidata => ({
+    type: 'FURNIDATA_SET',
+    furnidata
+});
+
 export const addNewsList = (list) => ({
     type: 'ADD_NEWS_LIST',
     list,

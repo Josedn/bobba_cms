@@ -190,10 +190,10 @@ input[type="text"].wrong, input[type="password"].wrong, input[type="email"].wron
     color: #aaaaaa;
 }
 
-/* register */
+/* form page */
 
 .form .input_group {
-    margin: 10px;
+    margin: 10px 0;
     font-size: 0.9em;
 }
 
@@ -210,7 +210,7 @@ input[type="text"].wrong, input[type="password"].wrong, input[type="email"].wron
     float: right;
 }
 
-.register .right_column {
+.register .right_column, .furnifinder .right_column {
     text-align: center;
 }
 
