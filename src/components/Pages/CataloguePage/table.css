@@ -30,7 +30,7 @@ tbody tr:hover {
     cursor: pointer;
 }
 
-.furnifinder ul {
+.furnifinder article ul {
     font-weight: bold;
     list-style: none;
     padding: 0;
@@ -40,16 +40,16 @@ tbody tr:hover {
     text-decoration: none;
     padding: .5em 1em;
 }
-.furnifinder .pages {
+.furnifinder article .pages {
     text-align: center;
     margin: 0.2em 0 0 0;
 }
 
-.furnifinder li {
+.furnifinder article li {
     margin: auto;
     cursor: pointer;
 }
 
-.furnifinder li:hover {
+.furnifinder article li:hover {
     color: #888888;
 }
