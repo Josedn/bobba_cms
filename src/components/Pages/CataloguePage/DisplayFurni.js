@@ -9,7 +9,7 @@ class DisplayFurni extends React.Component {
                 <h1 className="green">Información</h1>
 
                 <br />
-                <img src={image} alt="Black Dragon Lamp" />
+                <img src={image} alt={name} />
                 <br />
 
                 <h2>
